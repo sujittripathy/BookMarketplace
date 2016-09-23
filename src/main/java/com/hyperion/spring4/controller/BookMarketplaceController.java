@@ -20,4 +20,9 @@ public class BookMarketplaceController  {
     public String addBook(Book book){
         return null;
     }
+
+    @RequestMapping(path="/test",method = RequestMethod.GET)
+    public String test(){
+        return "test";
+    }
 }
