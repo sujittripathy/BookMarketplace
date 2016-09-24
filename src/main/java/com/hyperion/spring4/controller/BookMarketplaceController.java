@@ -4,6 +4,7 @@ import com.hyperion.spring4.domain.Book;
 import com.hyperion.spring4.service.BookMarketplaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,7 +23,9 @@ public class BookMarketplaceController  {
     }
 
     @RequestMapping(path="/test",method = RequestMethod.GET)
-    public String test(){
-        return "test";
+    public String test(Model model)
+    {
+        model.addAttribute("recipient","Hello New Recipient");
+        return "index.html";
     }
 }
