@@ -8,10 +8,10 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 /**
  * Created by stripathy on 9/23/2016.
  */
-@Configuration
-@ComponentScan(basePackages = {"com.hyperion.spring4"},
-        excludeFilters = {
-                @ComponentScan.Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class)
-        })
+//@Configuration
+//@ComponentScan(basePackages = {"com.hyperion.spring4"},
+  //      excludeFilters = {
+    //            @ComponentScan.Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class)
+      //  })
 public class RootConfig {
 }
