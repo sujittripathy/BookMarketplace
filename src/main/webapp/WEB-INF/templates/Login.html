@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>Book Marketplace</title>
+        <link href="../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+        <link href="../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+    </head>
+</head>
+<body>
+<form class="form-narrow form-horizontal" method="post" action="/book/login">
+    <legend>Login to Marketplace</legend>
+    <fieldset>
+        <div>
+            <label for="user">User Name: </label>
+            <input type="text" field="*{isbn}"/><br/>
+        </div>
+        <div>
+            <label for="password">Password: </label>
+            <input type="password" field="*{password}"/><br/>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10">
+                <button type="submit" class="btn btn-default">Login</button>
+            </div>
+        </div>
+        </fieldset>
+    </form>
+</body>
+</html>
