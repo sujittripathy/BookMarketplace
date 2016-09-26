@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Marketplace</title>
+    <link href="../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+    <link href="../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div>
+    <div class="container">
+        <h1>Welcome to Book Marketplace</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="hero-unit">
+        <ul>
+            <li><a href="/book/add">Add new book</a></li>
+            <li><a href="#">Search Book</a></li>
+            <li><a href="/book/list">List all books</a></li>
+        </ul>
+    </div>
+    <div>&copy; 2016 The Book Marketplace</div>
+</div>
+
+</body>
+</html>

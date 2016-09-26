@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book List</title>
+</head>
+<body>
+<h1>The List of Books in Marketplace</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ISBN</th>
+            <th>AUTHOR</th>
+            <th>COUNTRY</th>
+            <th>GENDER</th>
+            <th>TITLE</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="book: ${bookList}">
+            <td th:text="${{book.isbn}}">Isbn</td>
+            <td th:text="${{book.author}}">Author</td>
+            <td th:text="${{book.cntry}}">Country</td>
+            <td th:text="${{book.gender}}">Gender</td>
+            <td th:text="${{book.title}}">Title</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

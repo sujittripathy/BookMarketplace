@@ -15,7 +15,7 @@ public class BookMarketPlaceWebappInitializer extends AbstractAnnotationConfigDi
     @Override
     protected Class<?>[] getServletConfigClasses() {
 
-        return new Class<?>[]{JSPConfig.class,ThymeleafConfig.class};
+        return new Class<?>[]{ThymeleafConfig.class};//,JSPConfig.class
     }
 
     @Override

@@ -1,5 +1,9 @@
 package com.hyperion.spring4.config;
 
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -22,26 +26,36 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.hyperion")
-public class ThymeleafConfig extends WebMvcConfigurerAdapter{
+public class ThymeleafConfig extends WebMvcConfigurerAdapter {//implements ApplicationContextAware{
+//    private ApplicationContext applicationContext;
 
    @Bean
     public ViewResolver viewResolver(){
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
         viewResolver.setTemplateEngine(templateEngine());
+        viewResolver.setCharacterEncoding("UTF-8");
+        viewResolver.setOrder(1);
         return viewResolver;
     }
 
-    private TemplateEngine templateEngine(){
+    @Bean
+    public TemplateEngine templateEngine(){
         SpringTemplateEngine templateEngine=new SpringTemplateEngine();
+        templateEngine.setEnableSpringELCompiler(true);
         templateEngine.setTemplateResolver(templateResolver());
         return  templateEngine;
     }
 
-    private ITemplateResolver templateResolver(){
+    @Bean
+    public ITemplateResolver templateResolver(){
         SpringResourceTemplateResolver resolver= new SpringResourceTemplateResolver();
-        resolver.setPrefix("/WEB-INF/templates");
-        resolver.setSuffix(".html");
+        resolver.setPrefix("/WEB-INF/templates/");
         resolver.setTemplateMode(TemplateMode.HTML);
         return resolver;
     }
+
+   /* @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+    }*/
 }
