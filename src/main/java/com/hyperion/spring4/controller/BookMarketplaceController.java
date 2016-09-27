@@ -16,10 +16,10 @@ public class BookMarketplaceController  {
     @Autowired
     BookMarketplaceService bookMarketplaceService;
 
-    @RequestMapping(path = "/login",method = RequestMethod.GET)
+   /* @RequestMapping(path = "/login",method = RequestMethod.GET)
     public String login(){
         return "Login.html";
-    }
+    }*/
 
     @RequestMapping(path = "/add",method = RequestMethod.GET)
     public String addBook(){
