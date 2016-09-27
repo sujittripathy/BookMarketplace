@@ -16,12 +16,25 @@ public class BookMarketplaceController  {
     @Autowired
     BookMarketplaceService bookMarketplaceService;
 
-   /* @RequestMapping(path = "/login",method = RequestMethod.GET)
+    @RequestMapping(path = "/login",method = RequestMethod.POST)
     public String login(){
-        return "Login.html";
-    }*/
+        System.out.print(".... /login POST triggered ...");
+        return "home.html";
+    }
 
-    @RequestMapping(path = "/add",method = RequestMethod.GET)
+    @RequestMapping(path = "/login",method = RequestMethod.GET)
+    public String signOnPage(){
+        System.out.print(".... /login GET triggered ...");
+        return "Login.html";
+    }
+
+    @RequestMapping(path = "/home",method = RequestMethod.GET)
+    public String home(){
+        System.out.print(".... /home GET triggered ...");
+        return "home.html";
+    }
+
+   /* @RequestMapping(path = "/book/add",method = RequestMethod.GET)
     public String addBook(){
         return "AddBook.html";
     }
@@ -45,17 +58,14 @@ public class BookMarketplaceController  {
         return "ListBook.html";
     }
 
-    @RequestMapping(path = "/home",method = RequestMethod.GET)
-    public String home(){
-        return "home.html";
-    }
+
 
     @RequestMapping(path="/test-thymeleaf",method = RequestMethod.GET)
     public String test(Model model)
     {
         model.addAttribute("recipient"," -- Thymeleaf --");
         return "index.html";
-    }
+    }*/
 
    /* @RequestMapping(path="/test-jsp",method = RequestMethod.GET)
     public String test(ModelMap modelMap)

@@ -9,6 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
@@ -58,4 +59,8 @@ public class ThymeleafConfig extends WebMvcConfigurerAdapter {//implements Appli
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }*/
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry resourceHandlerRegistry){
+        resourceHandlerRegistry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+    }
 }

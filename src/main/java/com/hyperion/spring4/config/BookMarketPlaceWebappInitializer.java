@@ -21,6 +21,6 @@ public class BookMarketPlaceWebappInitializer extends AbstractAnnotationConfigDi
     @Override
     protected String[] getServletMappings() {
 
-        return new String[] {"/book/*"};
+        return new String[] {"/*"};
     }
 }
