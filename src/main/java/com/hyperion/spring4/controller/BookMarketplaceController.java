@@ -1,6 +1,7 @@
 package com.hyperion.spring4.controller;
 
-import com.hyperion.spring4.domain.Book;
+import com.hyperion.spring4.entity.Book;
+import com.hyperion.spring4.repository.BookRepository;
 import com.hyperion.spring4.service.BookMarketplaceService;
 import com.hyperion.spring4.util.BookUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,8 @@ public class BookMarketplaceController  {
 
     @Autowired
     BookMarketplaceService bookMarketplaceService;
-
-    @RequestMapping(path = "/login",method = RequestMethod.POST)
-    public String login(){
-        System.out.print(".... /login POST triggered ...");
-        return "home.html";
-    }
+    @Autowired
+    BookRepository bookRepository;
 
     @RequestMapping(path = "/login",method = RequestMethod.GET)
     public String signOnPage(){
@@ -34,11 +31,13 @@ public class BookMarketplaceController  {
         return "home.html";
     }
 
-   /* @RequestMapping(path = "/book/add",method = RequestMethod.GET)
+    @RequestMapping(path = "/add",method = RequestMethod.GET)
     public String addBook(){
+        bookRepository.save(new Book("a","b","c","d","e"));
+        System.out.println("Total >>"+bookRepository.count());
         return "AddBook.html";
     }
-
+/*
     @RequestMapping(path = "/add",method = RequestMethod.POST)
     public String submitBook(Book book){
         System.out.print("Book Details ->>>>"+book.getAuthor()+","+book.getTitle()+","+book.getTitle());
