@@ -1,6 +1,6 @@
 package com.hyperion.spring4.service;
 
-import com.hyperion.spring4.domain.Book;
+import com.hyperion.spring4.domain.BookDomain;
 import org.springframework.stereotype.Component;
 
 /**
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class BookMarketplaceService {
-    public void addBook(Book book){
+    public void addBook(BookDomain bookDomain){
 
     }
 }

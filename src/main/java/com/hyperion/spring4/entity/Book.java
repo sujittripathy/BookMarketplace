@@ -12,18 +12,18 @@ public class Book {
     private int isbn;
     private String title;
     private String author;
-    private String gender;
     private String publisher;
     private String cntry;
+    private int price;
 
     protected Book() {  }
 
-    public Book(String title, String author, String gender, String publisher, String cntry) {
+    public Book(String title, String author, String publisher, String cntry, int price) {
         this.title = title;
         this.author = author;
-        this.gender = gender;
         this.publisher = publisher;
         this.cntry = cntry;
+        this.price=price;
     }
 
     public int getIsbn() {
@@ -50,14 +50,6 @@ public class Book {
         this.author = author;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
     public String getPublisher() {
         return publisher;
     }
@@ -74,13 +66,20 @@ public class Book {
         this.cntry = cntry;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
-        return "Book{" +
+        return "BookDomain{" +
                 "isbn=" + isbn +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
-                ", gender='" + gender + '\'' +
                 ", publisher='" + publisher + '\'' +
                 ", cntry='" + cntry + '\'' +
                 '}';

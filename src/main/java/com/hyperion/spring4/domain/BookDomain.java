@@ -1,15 +1,12 @@
 package com.hyperion.spring4.domain;
 
-/**
- * Created by sujittripathy on 9/22/16.
- */
-public class Book {
+public class BookDomain {
     private int isbn;
     private String title;
     private String author;
-    private String gender;
     private String publisher;
     private String cntry;
+    private int price;
 
     public String getTitle() {
         return title;
@@ -25,14 +22,6 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 
     public String getPublisher() {
@@ -56,17 +45,24 @@ public class Book {
         return isbn;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     public void setIsbn(int isbn) {
         this.isbn = isbn;
     }
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "BookDomain{" +
                 "isbn=" + isbn +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
-                ", gender='" + gender + '\'' +
                 ", publisher='" + publisher + '\'' +
                 ", cntry='" + cntry + '\'' +
                 '}';

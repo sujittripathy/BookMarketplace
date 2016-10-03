@@ -10,21 +10,25 @@
     <thead>
         <tr>
             <th>ISBN</th>
+            <th>TITLE</th>
             <th>AUTHOR</th>
             <th>COUNTRY</th>
-            <th>GENDER</th>
-            <th>TITLE</th>
+            <th>PUBLISHER</th>
+            <th>PRICE</th>
         </tr>
     </thead>
     <tbody>
-        <tr th:each="book: ${bookList}">
-            <td th:text="${{book.isbn}}">Isbn</td>
-            <td th:text="${{book.author}}">Author</td>
-            <td th:text="${{book.cntry}}">Country</td>
-            <td th:text="${{book.gender}}">Gender</td>
-            <td th:text="${{book.title}}">Title</td>
+        <tr th:each="bookDomain: ${bookList}">
+            <td th:text="${{bookDomain.isbn}}">Isbn</td>
+            <td th:text="${{bookDomain.title}}">Title</td>
+            <td th:text="${{bookDomain.author}}">Author</td>
+            <td th:text="${{bookDomain.cntry}}">Country</td>
+            <td th:text="${{bookDomain.publisher}}">Publisher</td>
+            <td th:text="${{bookDomain.price}}">Price</td>
+            <td><a th:href="@{/delete/}+${bookDomain.isbn}" href="#"/>Delete</td>
         </tr>
     </tbody>
 </table>
+<a href="/home">Back to Home</a>
 </body>
 </html>
