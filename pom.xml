@@ -132,7 +132,6 @@
         <version>2.2</version>
         <configuration>
           <contextReloadable>true</contextReloadable>
-          <path>/</path>
         </configuration>
       </plugin>
       <plugin>

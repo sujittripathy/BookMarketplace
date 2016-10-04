@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,18 +21,18 @@ public class BookMarketplaceController  {
 
     /*@RequestMapping(path = "/login",method = RequestMethod.GET)
     public String signOnPage(){
-        return "Login.html";
+        return "Login";
     }*/
 
     @RequestMapping(path = "/home",method = RequestMethod.GET)
     public String home(){
-        return "home.html";
+        return "home";
     }
 
     @GetMapping("/add")
     public String addBook(Model model){
         model.addAttribute("book",new BookDomain());
-        return "AddBook.html";
+        return "AddBook";
     }
 
     @PostMapping("/add")
@@ -51,12 +50,22 @@ public class BookMarketplaceController  {
         bookRepository.findAll().forEach(book -> {
             booList.add(book);});
         model.addAttribute("bookList",booList);
-        return "ListBook.html";
+        return "ListBook";
     }
 
     @GetMapping("/delete/{isbn}")
     public String delete(@PathVariable Integer isbn){
         bookRepository.delete(isbn);
         return "redirect:/home";
+    }
+
+    @GetMapping("/search")
+    public String searchGet(){
+        return "SearchBook";
+    }
+
+    @PostMapping("/search")
+    public String searchPost(){
+        return "SearchBook";
     }
 }

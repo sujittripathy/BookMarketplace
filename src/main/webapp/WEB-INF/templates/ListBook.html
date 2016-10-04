@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Book List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/stsm.css" th:href="@{/css/stsm.css}"/>
 </head>
 <body>
-<h1>The List of Books in Marketplace</h1>
-<table border="1">
-    <thead>
+<div>
+    <img src="../../images/book.png" alt="book logo" title="book logo"
+         th:src="@{/images/book.png}" th:alt-title="#{title.application}"/>
+</div>
+
+<div class="seedstarterlist">
+    <h2>BOOKS AVAILABLE IN MARKETPLACE</h2>
+    <table>
+        <thead>
         <tr>
             <th>ISBN</th>
             <th>TITLE</th>
@@ -16,19 +24,23 @@
             <th>PUBLISHER</th>
             <th>PRICE</th>
         </tr>
-    </thead>
-    <tbody>
-        <tr th:each="bookDomain: ${bookList}">
+        </thead>
+        <tbody>
+        <tr th:each="bookDomain : ${bookList}">
             <td th:text="${{bookDomain.isbn}}">Isbn</td>
             <td th:text="${{bookDomain.title}}">Title</td>
             <td th:text="${{bookDomain.author}}">Author</td>
             <td th:text="${{bookDomain.cntry}}">Country</td>
             <td th:text="${{bookDomain.publisher}}">Publisher</td>
             <td th:text="${{bookDomain.price}}">Price</td>
-            <td><a th:href="@{/delete/}+${bookDomain.isbn}" href="#"/>Delete</td>
+            <td>
+                <a th:href="@{/delete/}+${bookDomain.isbn}" href="#">Delete</a>
+            </td>
         </tr>
-    </tbody>
-</table>
-<a href="/home">Back to Home</a>
+        </tbody>
+    </table>
+</div>
+<p/>
+<a href="/home" th:href="@{/home}">Back to Home</a>
 </body>
 </html>

@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Book Marketplace</title>
-    <link href="../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{css/bootstrap.min.css}"/>
-    <link href="../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{css/core.css}" />
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/css/bootstrap.min.css}"/>
+    <link href="../css/core.css" rel="stylesheet" media="screen" th:href="@{/css/core.css}" />
 </head>
 <body>
 <div>
@@ -17,9 +15,9 @@
 <div class="container">
     <div class="hero-unit">
         <ul>
-            <li><a href="/add">Add new Book</a></li>
-            <li><a href="/search">Search Book</a></li>
-            <li><a href="/list">List all books</a></li>
+            <li><a href="/add" th:href="@{/add}">Add new Book</a></li>
+            <li><a href="/search" th:href="@{/search}">Search Book</a></li>
+            <li><a href="/list" th:href="@{/list}">List all books</a></li>
         </ul>
     </div>
     <div>&copy; 2016 The Book Marketplace</div>

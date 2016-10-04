@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -52,6 +53,7 @@ public class ThymeleafConfig extends WebMvcConfigurerAdapter {//implements Appli
         SpringResourceTemplateResolver resolver= new SpringResourceTemplateResolver();
         resolver.setPrefix("/WEB-INF/templates/");
         resolver.setTemplateMode(TemplateMode.HTML);
+        resolver.setSuffix(".html");
         return resolver;
     }
 
@@ -59,8 +61,12 @@ public class ThymeleafConfig extends WebMvcConfigurerAdapter {//implements Appli
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }*/
-    @Override
+    /*@Override
     public void addResourceHandlers(ResourceHandlerRegistry resourceHandlerRegistry){
-        resourceHandlerRegistry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+        resourceHandlerRegistry.addResourceHandler("/resources*//**").addResourceLocations("/resources/");
+    }*/
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
     }
 }
