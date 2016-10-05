@@ -2,11 +2,55 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>SEARCH BOOK</title>
 </head>
 <body>
-<form th:action="@{/search}" method="post">
-
+<div>
+    <img src="../../images/book2.png" alt="Book logo" title="Book logo"
+         th:src="@{/images/book2.png}" th:alt-title="#{title.application}"/>
+</div>
+<div>
+    <h1>SEARCH BOOK</h1>
+</div>
+<form th:action="@{/search}" th:object="${book}" method="post">
+    <fieldset>
+        <div>
+            <label for="title">Search Book By Title: </label>
+            <input type="text" th:field="*{title}"/><br/>
+        </div>
+        <div>
+            <button type="submit">Search Book</button>
+        </div>
+    </fieldset>
+    <a href="/home" th:href="@{/home}">Back to Home</a>
 </form>
+<div th:if="${bookList}" class="seedstarterlist">
+    <h2>BOOKS SEARCH RESULTS</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>ISBN</th>
+            <th>TITLE</th>
+            <th>AUTHOR</th>
+            <th>COUNTRY</th>
+            <th>PUBLISHER</th>
+            <th>PRICE</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${bookList}">
+            <td th:text="${{book.isbn}}">Isbn</td>
+            <td th:text="${{book.title}}">Title</td>
+            <td th:text="${{book.author}}">Author</td>
+            <td th:text="${{book.cntry}}">Country</td>
+            <td th:text="${{book.publisher}}">Publisher</td>
+            <td th:text="${{book.price}}">Price</td>
+            <td>
+                <a th:href="@{/delete/}+${book.isbn}" href="#">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

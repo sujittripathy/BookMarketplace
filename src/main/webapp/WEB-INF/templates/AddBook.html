@@ -8,11 +8,11 @@
 </head>
 <body>
 <div>
-    <img src="../../images/book.png" alt="Book logo" title="Book logo"
-         th:src="@{/images/book.png}" th:alt-title="#{title.application}"/>
+    <img src="../../images/book2.png" alt="Book logo" title="Book logo"
+         th:src="@{/images/book2.png}" th:alt-title="#{title.application}"/>
 </div>
-<form th:action="@{/add}" th:object="${book}" class="form-narrow form-horizontal" method="post">
-    <div class="container">
+<form th:action="@{/add}" th:object="${book}" method="post">
+    <div>
         <h1>ADD NEW BOOK TO MARKETPLACE</h1>
     </div>
     <fieldset>
@@ -36,12 +36,10 @@
             <label for="publisher">Publisher: </label>
             <input type="text" th:field="*{publisher}"/><br/>
         </div>
-        <div class="form-group">
-            <div class="col-lg-offset-2 col-lg-10">
-                <button type="submit" class="btn btn-default">Add Book</button>
-                <a href="/home" th:href="@{/home}">Back to Home</a>
-            </div>
-        </div>
+        <div>
+            <button type="submit">Add Book</button>
+            <a href="/home" th:href="@{/home}">Back to Home</a>
+         </div>
     </fieldset>
 </form>
 </body>

@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
     <title>Book Marketplace</title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/css/bootstrap.min.css}"/>
-    <link href="../css/core.css" rel="stylesheet" media="screen" th:href="@{/css/core.css}" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/stsm.css" th:href="@{/css/stsm.css}"/>
 </head>
 <body>
 <div>
-    <div class="container">
-        <h1>Welcome to Book Marketplace</h1>
-    </div>
+    <img src="../../images/book2.png" alt="Book logo" title="Book logo"
+         th:src="@{/images/book2.png}" th:alt-title="#{title.application}"/>
 </div>
-<div class="container">
-    <div class="hero-unit">
+<div>
+    <div>
         <ul>
             <li><a href="/add" th:href="@{/add}">Add new Book</a></li>
             <li><a href="/search" th:href="@{/search}">Search Book</a></li>

@@ -19,11 +19,6 @@ public class BookMarketplaceController  {
     @Autowired
     BookRepository bookRepository;
 
-    /*@RequestMapping(path = "/login",method = RequestMethod.GET)
-    public String signOnPage(){
-        return "Login";
-    }*/
-
     @RequestMapping(path = "/home",method = RequestMethod.GET)
     public String home(){
         return "home";
@@ -60,12 +55,18 @@ public class BookMarketplaceController  {
     }
 
     @GetMapping("/search")
-    public String searchGet(){
+    public String searchGet(Model model){
+        model.addAttribute("book",new BookDomain());
         return "SearchBook";
     }
 
     @PostMapping("/search")
-    public String searchPost(){
+    public String searchPost(@ModelAttribute BookDomain bookDomain, Model model)
+    {
+        List<Book> bookList= bookRepository.findByTitle(bookDomain.getTitle());
+        System.out.print("Title >>"+bookDomain.getTitle()+", Size>> "+bookList.size());
+        model.addAttribute("book",new BookDomain());
+        model.addAttribute("bookList",bookList);
         return "SearchBook";
     }
 }
