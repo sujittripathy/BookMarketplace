@@ -26,16 +26,25 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="bookDomain : ${bookList}">
-            <td th:text="${{bookDomain.isbn}}">Isbn</td>
-            <td th:text="${{bookDomain.title}}">Title</td>
-            <td th:text="${{bookDomain.author}}">Author</td>
-            <td th:text="${{bookDomain.cntry}}">Country</td>
-            <td th:text="${{bookDomain.publisher}}">Publisher</td>
-            <td th:text="${{bookDomain.price}}">Price</td>
+        <tr th:each="book: ${bookList}">
+            <td th:text="${{book.isbn}}">Isbn</td>
+            <td th:text="${{book.title}}">Title</td>
+            <td th:text="${{book.author}}">Author</td>
+            <td th:text="${{book.cntry}}">Country</td>
+            <td th:text="${{book.publisher}}">Publisher</td>
+            <td th:text="${{book.price}}">Price</td>
             <td>
-                <a th:href="@{/delete/}+${bookDomain.isbn}" href="#">Delete</a>
+                <a th:href="@{/delete/}+${book.isbn}" href="#">Delete</a>
             </td>
+            <td>
+                <a th:href="@{/edit/}+${book.isbn}" href="#">Edit</a>
+            </td>
+
+            <!--<td>
+                <form th:action="@{/edit}" th:object="${book}" method="post">
+                    <button type="submit">Edit</button>
+                </form>
+            </td>-->
         </tr>
         </tbody>
     </table>

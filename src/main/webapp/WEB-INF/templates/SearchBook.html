@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>SEARCH BOOK</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/stsm.css" th:href="@{/css/stsm.css}"/>
 </head>
 <body>
 <div>
@@ -16,15 +18,13 @@
     <fieldset>
         <div>
             <label for="title">Search Book By Title: </label>
-            <input type="text" th:field="*{title}"/><br/>
-        </div>
-        <div>
+            <input type="text" th:field="*{title}"/>
             <button type="submit">Search Book</button>
         </div>
     </fieldset>
     <a href="/home" th:href="@{/home}">Back to Home</a>
 </form>
-<div th:if="${bookList}" class="seedstarterlist">
+<div th:if="${not #lists.isEmpty(bookList)}" class="seedstarterlist">
     <h2>BOOKS SEARCH RESULTS</h2>
     <table>
         <thead>
@@ -48,9 +48,15 @@
             <td>
                 <a th:href="@{/delete/}+${book.isbn}" href="#">Delete</a>
             </td>
+            <td>
+                <a th:href="@{/edit/}+${book.isbn}" href="#">Edit</a>
+            </td>
         </tr>
         </tbody>
     </table>
+</div>
+<div th:if="${#lists.isEmpty(bookList)}" class="seedstarterlist">
+    <h2>NO RESULT RETURNED</h2>
 </div>
 </body>
 </html>

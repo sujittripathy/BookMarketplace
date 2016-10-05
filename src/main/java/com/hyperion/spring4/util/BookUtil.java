@@ -1,6 +1,7 @@
 package com.hyperion.spring4.util;
 
 import com.hyperion.spring4.domain.BookDomain;
+import com.hyperion.spring4.entity.Book;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,4 +39,5 @@ public class BookUtil {
         bookDomainList.add(b3);
         return bookDomainList;
     }
+
 }

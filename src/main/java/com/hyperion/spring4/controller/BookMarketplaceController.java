@@ -69,4 +69,18 @@ public class BookMarketplaceController  {
         model.addAttribute("bookList",bookList);
         return "SearchBook";
     }
+
+    @GetMapping("/edit/{isbn}")
+    public String edit(@PathVariable Integer isbn, Model model){
+        Book book=bookRepository.findOne(isbn);
+        model.addAttribute("book_edit",book);
+        return "EditBookDetails";
+    }
+
+    @PostMapping("/edit")
+    public String editPost(@ModelAttribute Book book, Model model){
+        System.out.print(book.getIsbn()+","+book.getTitle());
+        bookRepository.save(book);
+        return "redirect:/home";
+    }
 }
