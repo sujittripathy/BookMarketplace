@@ -18,11 +18,11 @@
     </div>
     <fieldset>
         <div>
-            <label for="title">Title: </label>
+            <label for="title"><span th:text="#{book.title}" /></label>
             <input type="text" th:field="*{title}"/><br/>
         </div>
         <div>
-            <label for="author">Author: </label>
+            <label for="author"><span th:text="#{book.author}" /> </label>
             <input type="text" th:field="*{author}"/><br/>
         </div>
         <div>

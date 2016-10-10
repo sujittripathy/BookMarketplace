@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableTransactionManagement
-public class DBInfrastructureConfig {
+public class H2DBInfrastructureConfig {
     @Bean
     public DataSource dataSource(){
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();

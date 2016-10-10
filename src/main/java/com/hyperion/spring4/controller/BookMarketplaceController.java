@@ -77,6 +77,15 @@ public class BookMarketplaceController  {
         return "EditBookDetails";
     }
 
+    @RequestMapping(value = "/editPut", method =   RequestMethod.POST,
+                    headers = "content-type=application/x-www-form-urlencoded")
+    public String editPut(@ModelAttribute Book book, Model model){
+        //Book book=bookRepository.findOne(isbn);
+        System.out.println("Book Details ::"+book.getTitle());
+        model.addAttribute("book",book);
+        return "EditBookDetails";
+    }
+
     @PostMapping("/edit")
     public String editPost(@ModelAttribute Book book, Model model){
         System.out.print(book.getIsbn()+","+book.getTitle());

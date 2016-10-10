@@ -4,9 +4,11 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -55,6 +57,13 @@ public class ThymeleafConfig extends WebMvcConfigurerAdapter {//implements Appli
         resolver.setTemplateMode(TemplateMode.HTML);
         resolver.setSuffix(".html");
         return resolver;
+    }
+
+    @Bean
+    public MessageSource messageSource(){
+        ResourceBundleMessageSource resourceBundleMessageSource=new ResourceBundleMessageSource();
+        resourceBundleMessageSource.setBasename("messages");
+        return resourceBundleMessageSource;
     }
 
    /* @Override

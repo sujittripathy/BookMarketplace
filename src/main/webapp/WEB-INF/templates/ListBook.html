@@ -40,11 +40,11 @@
                 <a th:href="@{/edit/}+${book.isbn}" href="#">Edit</a>
             </td>
 
-            <!--<td>
-                <form th:action="@{/edit}" th:object="${book}" method="post">
-                    <button type="submit">Edit</button>
+            <td>
+                <form th:action="@{/editPut}" th:object="${book}" th:method="put">
+                    <button type="submit">Edit-PUT</button>
                 </form>
-            </td>-->
+            </td>
         </tr>
         </tbody>
     </table>
